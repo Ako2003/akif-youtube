@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const axios = require('axios'); // Use axios for HTTP requests
 const fs = require('fs');
 
 const app = express();
@@ -116,7 +115,7 @@ app.post('/webhook', async (req, res) => {
     if (videoUrl) {
         try {
             // Download the video (optional)
-            const response = await axios({
+            const response = await fetch({
                 method: 'GET',
                 url: videoUrl,
                 responseType: 'stream'
